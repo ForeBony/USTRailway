@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>protected</title>
+  <style>
+    body {background-color: #3f0909}
+    h1 {text-align: center;color: #74a8f5}
+    input {display: block;margin: 0 auto;}
+    button {display: block;margin: 0 auto;}
+  </style></head>
+<body>
+  <h1>Enter Password</h1>
+  <form id="passwordForm">
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('passwordForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      var password = document.getElementById('passwordInput').value;
+      
+      if (password === 'stopsmear') {window.location.href = 'Ultra-sonic tesing of Railway.html'} 
+      else {alert('wrong..');}});
+  </script>
+</body>
+</html>
