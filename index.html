@@ -4,8 +4,8 @@
   <title>protected</title>
   <style>
 
-    h1{text-align:center;color:rgb(38, 69, 240);}
-    h2{text-align:center;color:rgb(38, 69, 240);}
+    h1{text-align:center;color:rgb(103, 167, 240);}
+    h2{text-align:center;color:rgb(73, 100, 248);}
     body{font-family:arial; color: rgb(100, 165, 250)}              
     table {border-collapse: collapse;width: 100%;}                
     th,td{border: 1px solid rgb(23, 168, 52); padding: 8px; ;text-align:center;}
@@ -20,7 +20,9 @@
     .highlight{background-color: rgb(255, 187, 0);}
     input {display: block;margin: 0 auto;}
     button {display: block;margin: 0 auto;}
-    
+    img{width:30%;height:30%;object-fit:contain;margin-left:auto;margin-right:auto;display:block;}
+    #lastUpdated{text-align:center;color:rgb(255, 197, 6);}
+
     
   </style>
          <script>
@@ -103,10 +105,12 @@
 </head>
 
 <body background="UThtmlImg/img2.jpg" >
+        
     <div id="passwordPrompt">
         <h2>Please enter the password to access the content</h2>
         <input type="password" id="password">
         <button onclick="validatePassword()">Submit</button>
+       
     </div>
 
 
@@ -240,7 +244,7 @@
             </table><a href="javascript:void(0)" onclick="goBack()">Home page</a>
              <a href="https://1drv.ms/f/s!AuTho1WWUZ6yikrbwcS4GsrrQKib?e=amvYTa">Data frome here</a>
              
-                <p id="lastUpdated"></p>              
+                             
 
         </div>
       
@@ -252,6 +256,9 @@
             contentElement.classList.add("hidden");
           }
         </script>
+        <p id="lastUpdated"></p> 
+        <img src="UThtmlImg/imgLogo.png" alt="Company Logo">
+        
            
     
    
