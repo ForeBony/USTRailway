@@ -83,25 +83,7 @@
                         document.getElementById("searchInput").value="";
                         resetSearch();
                      }
-                     
-                     //get the last updated date
-                     document.addEventListener("DOMContentLoaded", function() {
-                        var currentDate = new Date();
-                        var options={
-                            year:'numeric',
-                            month:'long',
-                            day:'numeric',
-                            hour:'numeric',
-                            minute:'numeric',
-                            second:'numeric',
-                            hour12:false                            
-                        };
-                        var lastUpdated = document.getElementById("lastUpdated");
-                       lastUpdated.innerText="Last updated: " + currentDate.toLocaleDateString('en-US',options);
-                     });
-
-
-
+                    
          </script>
 </head>
 
@@ -255,7 +237,6 @@
             contentElement.classList.add("hidden");
           }
         </script>
-        <p id="lastUpdated"></p> 
         <img src="UThtmlImg/imgLogo.png" alt="Company Logo">
         
            
