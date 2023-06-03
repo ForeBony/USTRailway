@@ -20,6 +20,8 @@
     .highlight{background-color: rgb(255, 187, 0);}
     input {display: block;margin: 0 auto;}
     button {display: block;margin: 0 auto;}
+    
+    
   </style>
          <script>
               function validatePassword(){
@@ -78,7 +80,24 @@
                         document.getElementById("searchInput").value="";
                         resetSearch();
                      }
-                    
+                     
+                     //get the last updated date
+                     document.addEventListener("DOMContentLoaded", function() {
+                        var currentDate = new Date();
+                        var options={
+                            year:'numeric',
+                            month:'long',
+                            day:'numeric',
+                            hour:'numeric',
+                            minute:'numeric',
+                            second:'numeric',
+                            hour12:false                            
+                        };
+                        var lastUpdated = document.getElementById("lastUpdated");
+                       lastUpdated.innerText="Last updated: " + currentDate.toLocaleDateString('en-US',options);
+                     });
+
+
 
          </script>
 </head>
@@ -219,6 +238,10 @@
                     <td><a href="https://youtu.be/hwmewrRh8qY">3D View</a></td>                    
                 </tr>
             </table><a href="javascript:void(0)" onclick="goBack()">Home page</a>
+             <a href="https://1drv.ms/f/s!AuTho1WWUZ6yikrbwcS4GsrrQKib?e=amvYTa">Data frome here</a>
+             
+                <p id="lastUpdated"></p>              
+
         </div>
       
         <script>
@@ -229,7 +252,7 @@
             contentElement.classList.add("hidden");
           }
         </script>
-
+           
     
    
 </body>
