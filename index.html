@@ -17,7 +17,7 @@
     .orangeword{color:orange}
     .hidden{display: none;} 
     .content{display: block;}                   
-  
+    .highlight{background-color: rgb(255, 187, 0);}
     input {display: block;margin: 0 auto;}
     button {display: block;margin: 0 auto;}
   </style>
@@ -28,20 +28,57 @@
                         
                         if (password === correctPassword) {
                             document.getElementById("passwordPrompt").classList.add("hidden");
-                            var tableRows =document.querySelectorAll("#content table tr");
-                            for(var i = 0; i < tableRows.length; i++){
-                                tableRows[i].classList.remove("hidden");
-                            }
+                            var contentElement = document.getElementById("content");
+                            contentElement.classList.remove("hidden");
                         } else {
                             alert("Invalid password. Please try again.");
                         }
                     }
-                    document.addEventListener("DOMContentLoaded", function(){
-                        var tableRows =document.querySelectorAll("#content table tr");
-                        for(var i = 0; i < tableRows.length; i++){
-                            tableRows[i].classList.add("hidden");
+                function searchContent(){
+                    var keyword = document.getElementById("searchInput").value.toLowerCase();
+                    var table = document.getElementById("contentTable");
+                    var rows = table.getElementsByTagName("tr");
+
+                    for(var i=1; i<rows.length; i++){
+                        var cells = rows[i].getElementsByTagName("td");
+                        var rowMatch= false;
+
+                        for(var j=0; j<cells.length; j++){
+                            var cellData =cells[j].innerText.toLowerCase();
+
+                            if(cellData.includes(keyword)){
+                                rowMatch=true;
+                                cells[j].classList.add("highlight");
+                            }else{
+                                cells[j].classList.remove("highlight");
+                            }
                         }
-                    });
+
+                            if(rowMatch){
+                                rows[i].style.display="";
+                            }else{
+                                rows[i].style.display="none";
+                            }
+                        }
+                        }
+                     function resetSearch(){
+                        var table= document.getElementById("contentTable");
+                        var rows = table.getElementsByTagName("tr");
+
+                        for(var i=1; i<rows.length; i++){
+                            rows[i].style.display="";
+                        }
+                        document.getElementById("searchInput").value="";
+                     }
+                     function resetPage(){
+                        var contentElement = document.getElementById("content");
+                        contentElement.classList.add("hidden");
+                        var passwordPromptElement = document.getElementById("passwordPrompt");
+                        passwordPromptElement.classList.remove("hidden");
+                        document.getElementById("searchInput").value="";
+                        resetSearch();
+                     }
+                    
 
          </script>
 </head>
@@ -54,9 +91,12 @@
     </div>
 
 
-  <div id="content" class="content">
+  <div id="content" class="hidden">
             <h1>The Statistical Table of Railway Ultra-Sonic testing </h1>
-            <table>
+            <input type="text" id="searchInput" placeholder="Search content...">
+            <button onclick="searchContent()">Search</button>
+            <button onclick="resetSearch()">Reset</button>
+            <table id="contentTable">
                 <tr>
                     <th>Line</th>
                     <th>Mileage</th>
@@ -178,9 +218,20 @@
                     <td class="orangeword">Aluminothermic Welding</td>
                     <td><a href="https://youtu.be/hwmewrRh8qY">3D View</a></td>                    
                 </tr>
-            </table>
-    </div>
+            </table><a href="javascript:void(0)" onclick="goBack()">Go back</a>
+        </div>
+      
+        <script>
+          function goBack() {
+            var passwordPromptElement = document.getElementById("passwordPrompt");
+            passwordPromptElement.classList.remove("hidden");
+            var contentElement = document.getElementById("content");
+            contentElement.classList.add("hidden");
+          }
+        </script>
 
+    
+   
 </body>
 </html>
 
