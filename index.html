@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>protected</title>
+  <style>
+
+    h1{text-align:center;color:rgb(68, 96, 255);}
+    h2{text-align:center;color:rgb(73, 178, 248);}
+    h3{text-align:right; color:rgb(83, 94, 243)}
+    body{font-family:arial; color: rgb(99, 147, 253)}              
+    table {border-collapse: collapse;width: 100%;}                
+    th,td{border: 1px solid rgb(149, 18, 153); padding: 8px; ;text-align:center;}
+    a{color:rgb(40, 185, 137)} a:hover{color:blanchedalmond} a:visited{color:burlywood} a:active{color: green}
+    th{background-color: #5a3c04;} 
+    .greenword{color:rgb(0, 170, 51)} 
+    .blueword{color:rgb(96, 125, 255)}
+    .redword{color:red}
+    .orangeword{color:#996f22}
+    .hidden{display: none;} 
+    .content{display: block;}                   
+    .highlight{background-color: rgb(255, 187, 0);}
+    input {display: block;margin: 0 auto;}
+    button {display: block;margin: 0 auto;}
+    img{width:20%;height:20%;object-fit:contain;margin-left:auto;margin-right:auto;display:block;}
+    #lastUpdated{text-align:center;color:rgb(255, 197, 6);}
+    
+   
+    
+  </style>
+         <script>
+              function validatePassword(){
+                var password = document.getElementById("password").value;
+                var correctPassword = "stopsmear";
+                        
+                        if (password === correctPassword) {
+                            document.getElementById("passwordPrompt").classList.add("hidden");
+                            var contentElement = document.getElementById("content");
+                            contentElement.classList.remove("hidden");
+                        } else {
+                            alert("Invalid password. Please try again.");
+                        }
+                    }
+                function searchContent(){
+                    var keyword = document.getElementById("searchInput").value.toLowerCase();
+                    var table = document.getElementById("contentTable");
+                    var rows = table.getElementsByTagName("tr");
+
+                    for(var i=1; i<rows.length; i++){
+                        var cells = rows[i].getElementsByTagName("td");
+                        var rowMatch= false;
+
+                        for(var j=0; j<cells.length; j++){
+                            var cellData =cells[j].innerText.toLowerCase();
+
+                            if(cellData.includes(keyword)){
+                                rowMatch=true;
+                                cells[j].classList.add("highlight");
+                            }else{
+                                cells[j].classList.remove("highlight");
+                            }
+                        }
+
+                            if(rowMatch){
+                                rows[i].style.display="";
+                            }else{
+                                rows[i].style.display="none";
+                            }
+                        }
+                        }
+                     function resetSearch(){
+                        var table= document.getElementById("contentTable");
+                        var rows = table.getElementsByTagName("tr");
+
+                        for(var i=1; i<rows.length; i++){
+                            rows[i].style.display="";
+                        }
+                        document.getElementById("searchInput").value="";
+                     }
+                     function resetPage(){
+                        var contentElement = document.getElementById("content");
+                        contentElement.classList.add("hidden");
+                        var passwordPromptElement = document.getElementById("passwordPrompt");
+                        passwordPromptElement.classList.remove("hidden");
+                        document.getElementById("searchInput").value="";
+                        resetSearch();
+                     }
+                    
+         </script>
+</head>
+
+<body background="UThtmlImg/img2.jpg" >
+    <h3> Last modified: 2023,07,03 09:03</h3>
+        
+    <div id="passwordPrompt">
+        <h2>Please enter the password to access the content</h2>
+        <input type="password" id="password" > 
+        <button onclick="validatePassword()">Submit</button>
+    </div>
+    
+    <div id="content" class="hidden">
+            <h1>Railway Ultrasonic Testing Statistical Table</h1>
+            <input type="text" id="searchInput" placeholder="Search content...">
+            <button onclick="searchContent()">Search</button>
+            <button onclick="resetSearch()">Reset</button>
+           
+            <table id="contentTable">
+                <tr>
+                    <th>Line</th>
+                    <th>Mileage</th>
+                    <th>Testing Date(Y/M/D)</th>
+                    <th>Testing Result</th>
+                    <th>UT Techinician</th>
+                    <th>Testing Report</th>
+                    <th>Welding Type</th>
+                    <th>Additional Details</th>
+                </tr>
+                <tr>
+                    <td class="blueword">Pingtung Line</td>
+                    <td>K58+110L</td>
+                    <td>2023,06,29</td>
+                    <td class="redword">Class D</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks89LGV7ViK6O9CKNg?e=PZ1B6X" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K58+107L</td>
+                </tr>
+                <tr>
+                    <td class="blueword">Pingtung Line</td>
+                    <td>K58+104L</td>
+                    <td>2023,06,28</td>
+                    <td class="redword">Class D</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks8-3jiNSFqu9y8FSg?e=hhcaxB" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K58+107L</td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K23+162L</td>
+                    <td>2023,06,27</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks88mt2ntwQCmtroRA?e=emOPAL" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K23+162L</td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K23+130L</td>
+                    <td>2023,06,21</td>
+                    <td class="redword">Class C</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks9B3Ip2rmb0vFOuMg?e=H3uucN" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K23+131L</td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K23+130R</td>
+                    <td>2023,06,20</td>
+                    <td>Class A</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks9AKPW8ojZfnNOzcA?e=Pfpgek" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K23+143R</td>
+                </tr>
+
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K23+143R</td>
+                    <td>2023.06.16</td>
+                    <td>Class B</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks5UpaL3El6gAmi2vw?e=waR1lp" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K23+143R</td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K26+954ER</td>
+                    <td>2023.06.15</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks5VRMp9UGJ1J--NOg?e=wxnysa" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K26+951ER</td>
+                </tr>
+
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K26+948ER</td>
+                    <td>2023.06.13</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yks5WvRMNQw2hyhZmBA?e=SwaW9k" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K26+951ER</td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K20+886L</td>
+                    <td>2023.06.01</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6ykshSmSeUvPZct322-Q?e=zoJRen" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K14+056.5R</td>
+                    <td>2023.05.31</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6ykshRrIOe4sOCcXSa4Q?e=OWopg2" target="new">View Report(PDF)</a></td>
+                    <td class="blueword">Gas Pressure Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K11+334.6L</td>
+                    <td>2023.05.25</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6ykfkbVs3FJSCBvSmTag?e=3Q8Kkc" target="new">View Report(PDF)</a></td>
+                    <td class="blueword">Gas Pressure Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K11+306R</td>
+                    <td>2023.05.18</td>
+                    <td class="redword">Class D</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6ykMYoK792RPZQFVWihw?e=XbYCnu" target="new">View Report(PDF)</a></td>
+                    <td class="blueword">Gas Pressure Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K11+306.5L</td>
+                    <td>2023.05.17</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6ykMYp9EBjK09A_uKTYA?e=CxZYV1" target="new">View Report(PDF)</a></td>
+                    <td class="blueword">Gas Pressure Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K11+250R</td>
+                    <td>2023.05.11</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6ykMYsy4YlekEkvYkUJA?e=aVGVlD" target="new">View Report(PDF)</a></td>
+                    <td class="blueword">Gas Pressure Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K14+056.6L</td>
+                    <td>2023.05.10</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6ykMYr-Tob22pRJTumgQ?e=dRHfVP" target="new">View Report(PDF)</a></td>
+                    <td class="blueword">Gas Pressure Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K11+250L</td>
+                    <td>2023.05.04</td>
+                    <td>Class B</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yjPMXz2q9K-75zn9Ajw?e=XMgMot" target="new">View Report(PDF)</a></td>
+                    <td class="blueword">Gas Pressure Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K3+340L</td>
+                    <td>2023.04.27</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yjPMZH_VhvMT0smQOyA?e=3at6MS" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K3+320R</td>
+                    <td>2023.04.20</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yheUR645PD7w-4CLJSA?e=2tj2Ay" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td></td>                    
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K3+320L</td>
+                    <td>2023.04.19</td>
+                    <td class="redword">Class C</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yheUOlmwQeO-AYSsfEg?e=k1WnXo" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td><a href="https://youtu.be/hwmewrRh8qY" target="new">3D View</a></td>                                     
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K3+312R</td>
+                    <td>2023.04.13</td>
+                    <td >No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLZwk38t6Ce2nYoMnA?e=N05NAD" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td></td>                                     
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K3+312L</td>
+                    <td>2023.04.12</td>
+                    <td >No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLZvV_6i-PXJpqjkYA?e=VqkEcT" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td></td>                                     
+                </tr>
+                <tr>
+                    <td class="blueword">Pingtung Line</td>
+                    <td>K62+691L</td>
+                    <td>2023.04.07</td>
+                    <td >No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLZtMaxEpH10c8XxCA?e=4DFG3k" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K62+690L</td>                                     
+                </tr>
+                <tr>
+                    <td class="blueword">Pingtung Line</td>
+                    <td>K62+685L</td>
+                    <td>2023.03.30</td>
+                    <td>No Defects Detected</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLUFjQChVBPj0hWoow?e=V1WUBe" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K62+690L</td>                                     
+                </tr>
+                <tr>
+                    <td class="blueword">Pingtung Line</td>
+                    <td >K64+546L</td>
+                    <td>2023.03.29</td>
+                    <td>Class B</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLUGJLL3PMXykfv8KA?e=HxEPkS" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K64+568L</td>                                     
+                </tr>
+                <tr>
+                    <td class="blueword">Pingtung Line</td>
+                    <td>K64+540L</td>
+                    <td>2023.03.24</td>
+                    <td>Class B</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLRe3A1SHmRbl5XeeQ?e=f2qB7x" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K64+568L</td>                                     
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K0+660R</td>
+                    <td>2023.03.22</td>
+                    <td>Class B</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLRf6GSF9t-_zXNeaQ?e=I7bz1J" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K0+632R</td>                                     
+                </tr>
+                <tr>
+                    <td class="greenword">South Link Line</td>
+                    <td>K0+676R</td>
+                    <td>2023.03.21</td>
+                    <td>Class B</td>
+                    <td>DinG JiEy</td>
+                    <td><a href="https://1drv.ms/b/s!AuTho1WWUZ6yhLRgjfcPNkkKOiBGvQ?e=GGrt1N" target="new">View Report(PDF)</a></td>
+                    <td class="orangeword">Aluminothermic Welding</td>
+                    <td>Re-Welding K0+650R</td>                                     
+                </tr>
+
+
+            </table><a href="javascript:void(0)" onclick="goBack()">Home page</a> &nbsp;
+             <a href="https://1drv.ms/f/s!AuTho1WWUZ6yikrbwcS4GsrrQKib?e=amvYTa" target="new">Source of information</a>
+             
+             <div style=text-align:center>
+                <img src="UThtmlImg/imgLogo.png" alt="Company Logo" style="display:inline"><img src="UThtmlImg/qrcode.png" alt="qrcodE" style="display:inline">
+                </div>
+                                   
+
+        </div>
+      
+        <script>
+          function goBack() {
+            var passwordPromptElement = document.getElementById("passwordPrompt");
+            passwordPromptElement.classList.remove("hidden");
+            var contentElement = document.getElementById("content");
+            contentElement.classList.add("hidden");
+          }
+        </script>
+       
+    
+   
+</body>
+</html>
+
