@@ -2,99 +2,13 @@
 <html>
 <head>
   <title>protected</title>
-  <style>
-
-    h1{text-align:center;color:rgb(68, 96, 255);}
-    h2{text-align:center;color:rgb(73, 178, 248);}
-    h3{text-align:right; color:rgb(83, 94, 243)}
-    body{font-family:arial; color: rgb(99, 147, 253)}              
-    table {border-collapse: collapse;width: 100%;}                
-    th,td{border: 1px solid rgb(149, 18, 153); padding: 8px; ;text-align:center;}
-    a{color:rgb(40, 185, 137)} a:hover{color:blanchedalmond} a:visited{color:burlywood} a:active{color: green}
-    th{background-color: #5a3c04;} 
-    .greenword{color:rgb(0, 170, 51)} 
-    .blueword{color:rgb(96, 125, 255)}
-    .redword{color:red}
-    .orangeword{color:#996f22}
-    .hidden{display: none;} 
-    .content{display: block;}                   
-    .highlight{background-color: rgb(255, 187, 0);}
-    input {display: block;margin: 0 auto;}
-    button {display: block;margin: 0 auto;}
-    img{width:20%;height:20%;object-fit:contain;margin-left:auto;margin-right:auto;display:block;}
-    #lastUpdated{text-align:center;color:rgb(255, 197, 6);}
-    .marquee{color:orange; width:23%; white-space:nowrap; animation:marquee 1s linear infinite;}
-    @keyframes marquee{
-        0%{transform:translateX(2%);}
-        50%{transform:translateX(-2%)}
-        100%{transform:translateX(2%)}
-    }
- 
-   
-    
-  </style>
-         <script>
-              function validatePassword(){
-                var password = document.getElementById("password").value;
-                var correctPassword = "stopsmear";
-                        
-                        if (password === correctPassword) {
-                            document.getElementById("passwordPrompt").classList.add("hidden");
-                            var contentElement = document.getElementById("content");
-                            contentElement.classList.remove("hidden");
-                        } else {
-                            alert("Invalid password. Please try again.");
-                        }
-                    }
-                function searchContent(){
-                    var keyword = document.getElementById("searchInput").value.toLowerCase();
-                    var table = document.getElementById("contentTable");
-                    var rows = table.getElementsByTagName("tr");
-
-                    for(var i=1; i<rows.length; i++){
-                        var cells = rows[i].getElementsByTagName("td");
-                        var rowMatch= false;
-
-                        for(var j=0; j<cells.length; j++){
-                            var cellData =cells[j].innerText.toLowerCase();
-
-                            if(cellData.includes(keyword)){
-                                rowMatch=true;
-                                cells[j].classList.add("highlight");
-                            }else{
-                                cells[j].classList.remove("highlight");
-                            }
-                        }
-
-                            if(rowMatch){
-                                rows[i].style.display="";
-                            }else{
-                                rows[i].style.display="none";
-                            }
-                        }
-                        }
-                     function resetSearch(){
-                        var table= document.getElementById("contentTable");
-                        var rows = table.getElementsByTagName("tr");
-
-                        for(var i=1; i<rows.length; i++){
-                            rows[i].style.display="";
-                        }
-                        document.getElementById("searchInput").value="";
-                     }
-                     function resetPage(){
-                        var contentElement = document.getElementById("content");
-                        contentElement.classList.add("hidden");
-                        var passwordPromptElement = document.getElementById("passwordPrompt");
-                        passwordPromptElement.classList.remove("hidden");
-                        document.getElementById("searchInput").value="";
-                        resetSearch();
-                     }
-                    
-         </script>
+  <link rel='stylesheet' href="{{url_for('static',filename='HMut_css/HMut_css.css')}}">
+    <script type='text/javascript' src="{{url_for('static',filename='HMut_scripts/HMut_scripts.js')}}">
+    </script>
+        
 </head>
 
-<body background="UThtmlImg/img2.jpg" >
+<body style="background-image: url({{url_for('static',filename='UThtmlImg/img2.jpg')}});">
     <div class="marquee">
     <p> Last modified: 2023,09,28 11:50</p>
     </div>    
@@ -955,24 +869,17 @@
              <a href="https://1drv.ms/f/s!AuTho1WWUZ6yikrbwcS4GsrrQKib?e=amvYTa" target="new">Source of information</a>
              
              <div style=text-align:center>
-                <img src="UThtmlImg/imgLogo.png" alt="Company Logo" style="display:inline"><img src="UThtmlImg/qrcode.png" alt="qrcodE" style="display:inline">
+                <img src="{{url_for('static',filename='UThtmlImg/imgLogo.png' )}}" alt='Company Logo' style='display:inline'> <img src="{{url_for("static",filename='UThtmlImg/qrcode.png')}}" alt="qrcodE" style="display:inline" >
+                
             </div>
             <h2>Hand-Held Grinder made Reference Block</h2>
             <div style=text-align:center>
-                <img src="UThtmlImg/IMG_1022.jpg" alt="手持砂輪機自製DAC參考規塊" style="display:inline"><img src="UThtmlImg/IMG_1025.jpg" alt="手持砂輪機自製DAC參考規塊" style="display:inline"><img src="UThtmlImg/IMG_1023.jpg" alt="手持砂輪機自製DAC參考規塊" style="display:inline"><img src="UThtmlImg/IMG_1024.jpg" alt="手持砂輪機自製DAC參考規塊" style="display:inline">
+                <img src="{{url_for('static',filename='UThtmlImg/IMG_1022.jpg')}}" alt="手持砂輪機自製DAC參考規塊" style="display:inline"><img src="{{url_for("static",filename="UThtmlImg/IMG_1025.jpg")}}" alt="手持砂輪機自製DAC參考規塊" style="display:inline"><img src="{{url_for('static',filename="UThtmlImg/IMG_1023.jpg")}}"alt="手持砂輪機自製DAC參考規塊" style="display:inline"> <img src="{{url_for('static',filename="UThtmlImg/IMG_1024.jpg")}}" alt="手持砂輪機自製DAC參考規塊" style="display:inline">
+                
             </div>           
 
         </div>
-      
-        <script>
-          function goBack() {
-            var passwordPromptElement = document.getElementById("passwordPrompt");
-            passwordPromptElement.classList.remove("hidden");
-            var contentElement = document.getElementById("content");
-            contentElement.classList.add("hidden");
-          }
-        </script>
-       
+
     
    
 </body>
