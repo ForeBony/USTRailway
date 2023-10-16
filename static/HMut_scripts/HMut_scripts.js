@@ -54,3 +54,9 @@ function resetPage() {
   document.getElementById("searchInput").value = "";
   resetSearch();
 }
+function goBack() {
+  var passwordPromptElement = document.getElementById("passwordPrompt");
+  passwordPromptElement.classList.remove("hidden");
+  var contentElement = document.getElementById("content");
+  contentElement.classList.add("hidden");
+}
