@@ -1,3 +1,9 @@
+function sayHello() {
+  alert(
+    "Good day sir.\nWhat information are you looking for? \nPlease use the search function to find the information you need."
+  );
+}
+
 function validatePassword() {
   var password = document.getElementById("password").value;
   var correctPassword = "stopsmear";
@@ -6,6 +12,7 @@ function validatePassword() {
     document.getElementById("passwordPrompt").classList.add("hidden");
     var contentElement = document.getElementById("content");
     contentElement.classList.remove("hidden");
+    sayHello();
   } else {
     alert("Invalid password. Please try again.");
   }
