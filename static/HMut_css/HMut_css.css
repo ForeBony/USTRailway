@@ -103,3 +103,38 @@ body {
   background-size: auto;
   background-position: center;
 }
+@keyframes rainbowFlash {
+  0%,
+  100% {
+    background-color: red;
+  }
+  14% {
+    background-color: orange;
+  }
+  28% {
+    background-color: yellow;
+  }
+  42% {
+    background-color: green;
+  }
+  57% {
+    background-color: blue;
+  }
+  71% {
+    background-color: indigo;
+  }
+  85% {
+    background-color: violet;
+  }
+}
+
+.rainbow-flash {
+  animation: rainbowFlash 1s linear infinite;
+  color: white; /* Set text color to white for better visibility */
+  /* Other button styling */
+  padding: 10px; /* Example padding */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Change mouse cursor on hover */
+  /* ... */
+}

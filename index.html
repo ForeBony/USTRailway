@@ -10,19 +10,19 @@
 <body style="background-image:url(static/UThtmlImg/img2.jpg)" >
     <form onsubmit="sayHello(); return false;"></form>
     <div class="marquee">
-    <p> Last modified: 2023,11,03 09:29</p>
+    <p> Last modified: 2023,11,05 18:19</p>
     </div>    
 
     <div id="passwordPrompt">
         <h2>Please enter the password to access the content</h2>
         <input type="password" id="password" > 
-        <button onclick="validatePassword()">Submit</button>
+        <button class="rainbow-flash" onclick="validatePassword()">Submit</button>
     </div>
     
     <div id="content" class="hidden">
             <h1>Railway Ultrasonic Testing Statistical Table</h1>
             <input type="text" id="searchInput" placeholder="Search content...">
-            <button onclick="searchContent()">Search</button>
+            <button class="rainbow-flash" onclick="searchContent()">Search</button>
             <button onclick="resetSearch()">Reset</button>
            
             <table id="contentTable">
