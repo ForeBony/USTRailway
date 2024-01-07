@@ -24,8 +24,15 @@ td {
   padding: 8px;
   text-align: center;
 }
+th:hover {
+  background-color: rgb(102, 28, 136);
+  color: aliceblue;
+  font-size: 1.2em;
+}
 td:hover {
-  background-color: rgb(92, 7, 161);
+  background-color: rgb(102, 28, 136);
+  color: aliceblue;
+  font-size: 1.2em;
 }
 
 a {
