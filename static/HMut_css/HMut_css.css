@@ -142,3 +142,10 @@ body {
   cursor: pointer; /* Change mouse cursor on hover */
   /* ... */
 }
+
+#PowDJ {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  top: 0;
+}
