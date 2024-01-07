@@ -27,12 +27,12 @@ td {
 th:hover {
   background-color: rgb(102, 28, 136);
   color: aliceblue;
-  font-size: 1.2em;
+  /*font-size: 1.2em;*/
 }
 td:hover {
   background-color: rgb(102, 28, 136);
   color: aliceblue;
-  font-size: 1.2em;
+  /*font-size: 1.2em;*/
 }
 
 a {
