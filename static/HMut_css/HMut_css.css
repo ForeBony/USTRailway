@@ -24,6 +24,10 @@ td {
   padding: 8px;
   text-align: center;
 }
+td:hover {
+  background-color: rgb(160, 65, 250);
+}
+
 a {
   color: rgb(40, 185, 137);
 }
